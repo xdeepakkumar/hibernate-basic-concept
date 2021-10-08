@@ -1,6 +1,8 @@
 package com.tuts;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 /**
@@ -13,6 +15,18 @@ public class App
     {
         System.out.println( "Application started.." );
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
-        System.out.println(factory);
+        
+        //creating student
+        Student st = new Student();
+        st.setId(101);
+        st.setName("Deepak Kumar");
+        st.setCity("Delhi");
+        
+        //creating session object
+        Session session = factory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.save(st);
+        transaction.commit();
+        session.close();        
     }
 }
