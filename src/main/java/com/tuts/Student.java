@@ -1,5 +1,6 @@
 package com.tuts;
 
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -10,6 +11,7 @@ public class Student {
 	private int id;
 	private String name;
 	private String city;
+	private Certificate certi;
 	
 	public Student() {
 		super();
@@ -51,6 +53,14 @@ public class Student {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return this.id + " : "+ this.name + " : " +this.city;
+	}
+
+	public Certificate getCerti() {
+		return certi;
+	}
+
+	public void setCerti(Certificate certi) {
+		this.certi = certi;
 	}
 	
 	
