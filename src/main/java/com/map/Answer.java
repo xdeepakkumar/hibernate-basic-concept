@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Answer {
@@ -14,7 +14,7 @@ public class Answer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int answerId;
 	private String answer;
-	@OneToOne(mappedBy = "answer")
+	@ManyToOne
 	private Question question;
 	public Answer() {
 		super();
